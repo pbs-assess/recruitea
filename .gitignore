@@ -2,3 +2,6 @@
 *.docx
 
 .Rproj.user
+
+report/hake*
+report/hdi*
