@@ -43,8 +43,6 @@ expect_equal(as.numeric(rownames(hake_mcmc)),
 expect_equal(hake_mcmc["R_Virgin", ],
              hake_mcmc["R_Initial", ])
 
-
-
 # Define objects similar to in pacea, but with _mcmc after
 
 hake_recruitment_mcmc <- dplyr::select(hake_mcmc,
@@ -55,11 +53,14 @@ names(hake_recruitment_mcmc) <- gsub(pattern = "R_",
                                      replacement = "",
                                      x = names(hake_recruitment_mcmc))
 
+names(hake_recruitment_mcmc) <- gsub(pattern = "Virgin",
+                                     replacement = "unfished",
+                                     x = names(hake_recruitment_mcmc))
+
+class(hake_recruitment_mcmc) <- c("recruitea_recruitment",
+                                      class(hake_recruitment_mcmc))
+attr(hake_recruitment_mcmc, "axis_name") <-
+  "Pacific Hake recruitment (billions of age-0 fish)"
+
 usethis::use_data(hake_recruitment_mcmc,
                   overwrite = TRUE)
-
-
-# class(hake_recruitment_new) <- c("pacea_recruitment",
-#                                 class(hake_recruitment_new))
-# attr(hake_recruitment_new, "axis_name") <-
-#  "Pacific Hake recruitment (billions of age-0 fish)"

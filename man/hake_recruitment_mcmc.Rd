@@ -3,11 +3,11 @@
 \docType{data}
 \name{hake_recruitment_mcmc}
 \alias{hake_recruitment_mcmc}
-\title{Hake recruitment MCMC estimates as another example}
+\title{Hake age-0 recruitment MCMC estimates from the 2024 assessment as another example}
 \format{
 A tibble with each row representing an MCMC sample, and columns:
 \describe{
-\item{Virgin:}{presumably gives \code{R0}, TODO double check}
+\item{unfished:}{presumably gives \code{R0}}
 \item{\code{1966}:\code{2027}:}{year for each recruitment}
 }
 }
@@ -18,7 +18,13 @@ Generated from running \code{data-raw/hake.R}
 hake_recruitment_mcmc
 }
 \description{
-Hake recruitment MCMC estimates as another example
+Hake age-0 recruitment MCMC estimates from the 2024 assessment as another example
+}
+\examples{
+\dontrun{
+hake_recruitment_mcmc
+plot(hake_recruitment_mcmc)  # when plot function written
+}
 }
 \author{
 Andrew Edwards
