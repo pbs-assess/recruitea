@@ -6,33 +6,47 @@
 load_all()
 library(dplyr)
 
-dat <- read.csv("bocaccio-2024/BOR-CST-2024-MCMC(R)-forAndy.csv") %>%
+raw <- read.csv("bocaccio-2024/BOR-CST-2024-MCMC(R)-forAndy.csv") %>%
   as_tibble()
 
-names(dat) <- gsub(pattern = "X",
-                   replacement = "",
-                   x = names(dat))
+rec_new <- raw
 
-# 1935 is first year but presumably not unfished recruitment, though need to
-# check SR TODO
-# TODO and check units
+names(rec_new) <- gsub(pattern = "X",
+                       replacement = "",
+                       x = names(rec_new))
 
-dat <- select(dat,
-              -c("Run.Sample"))
+rec_new <- select(rec_new,
+                  -c("Run.Sample"))
 
-dat <- dat / 1000     # Convert from 1000s to millions
-dat <- as_tibble(dat)
+rec_new <- rec_new / 1000           # Convert from 1000s to millions
+rec_new <- as_tibble(rec_new)
+
+# R0 is saved separately
+R0_dat <- read.csv("bocaccio-2024/BOR-CST-2024-MCMC(R0)-forAndy.csv") %>%
+  as_tibble()
+
+# Check the samples line up in the same way between the two files:
+expect_equal(select(R0_dat, Run.Sample),
+             select(raw, Run.Sample))
+
+R0 <- pull(R0_dat, R_0) / 1000     # Convert from 1000s to millions
+
+rec_new <- cbind("unfished" = R0,
+                 rec_new) %>%
+  as_tibble()
 
 # Define objects similar to in pacea, but with _mcmc after
 
 # Add these, and then create a recruitea_recruitment class to then plot in
 # different ways - would be useful.
-bocaccio_recruitment_mcmc <- dat
+bocaccio_recruitment_mcmc <- rec_new
 
 class(bocaccio_recruitment_mcmc) <- c("recruitea_recruitment",
                                       class(bocaccio_recruitment_mcmc))
 attr(bocaccio_recruitment_mcmc, "axis_name") <-
   "Bocaccio recruitment (millions of age-1 fish)"
+
+plot(bocaccio_recruitment_mcmc)
 
 usethis::use_data(bocaccio_recruitment_mcmc,
                   overwrite = TRUE)
