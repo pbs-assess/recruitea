@@ -75,6 +75,17 @@ Next steps:
    approximation]? Or TMBStan?. Catarina and Carrie: go with RTMB and then TMBStan to get
    the samples.
 
+## Ideas
+
+From Rowan: Note that R in Awatea is for age-1 recruits, while R in SS3 is for
+age-0 recruits. The big Bocaccio recruitment spike shows up in 2017 for the 2016
+cohort. This cohort was reported by a number of agencies up and down the coast
+(see 2019 Bocaccio stock assessment). There was some speculation that the large
+recruitment event was connected with 'The Blob' (2014-2016). See Appendix G of
+the BOR stock assessment (screenshot in his email, and read Appendix).
+
+
+
 ## Directories
 
 **Main_DescriptiveModel.R** is the master R file which controls the
