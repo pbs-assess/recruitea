@@ -8,7 +8,7 @@
   obj,
   xlab = "Year",
   ylab = attr(obj, "axis_name"),
-  subsample = 20,
+  subsample = 10,
   unfished_years_before = 3,
   y_tick_by = 1,
   x_tick_extra_years = 20,
