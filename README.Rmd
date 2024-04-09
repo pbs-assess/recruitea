@@ -66,13 +66,13 @@ Lots of hard-wired names everywhere. Let's just focus on doing the POP values
 with NPGO, as those results looked okay, 'almost significant' (so may possibly change with updated data).
 
 Next steps:
- - save previous POP mcmc values as a data object, so can use to repeat
+ D save previous POP mcmc values as a data object, so can use to repeat
  - use npgo from pacea
  - work through steps from **Main_Descriptive_Model.R** - a lot is book-keeping
    and hardwired values. Think don't get too hung up on reusing the old code,
    maybe simpler to mostly start again.
  - decide on JAGS or Stan. Probably Stan. Or RTMB [no, as want the MCMC, not the
-   approximation]? Or TMBStan?. Catarina: go with RTMB and then TMBStan to get
+   approximation]? Or TMBStan?. Catarina and Carrie: go with RTMB and then TMBStan to get
    the samples.
 
 ## Directories
