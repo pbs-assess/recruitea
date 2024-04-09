@@ -53,6 +53,8 @@ names(hake_recruitment_mcmc) <- gsub(pattern = "R_",
                                      replacement = "",
                                      x = names(hake_recruitment_mcmc))
 
+hake_recruitment_mcmc <- as_tibble(hake_recruitment_mcmc / 1e06)  # thousands to billions
+
 names(hake_recruitment_mcmc) <- gsub(pattern = "Virgin",
                                      replacement = "unfished",
                                      x = names(hake_recruitment_mcmc))

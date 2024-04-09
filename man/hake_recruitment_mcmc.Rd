@@ -3,7 +3,7 @@
 \docType{data}
 \name{hake_recruitment_mcmc}
 \alias{hake_recruitment_mcmc}
-\title{Hake age-0 recruitment MCMC estimates from the 2024 assessment as another example}
+\title{Hake recruitment MCMC estimates (billions of age-0 fish) from the 2024 assessment}
 \format{
 A tibble with each row representing an MCMC sample, and columns:
 \describe{
@@ -18,7 +18,7 @@ Generated from running \code{data-raw/hake.R}
 hake_recruitment_mcmc
 }
 \description{
-Hake age-0 recruitment MCMC estimates from the 2024 assessment as another example
+Hake recruitment MCMC estimates (billions of age-0 fish) from the 2024 assessment
 }
 \examples{
 \dontrun{

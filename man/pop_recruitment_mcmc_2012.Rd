@@ -3,7 +3,8 @@
 \docType{data}
 \name{pop_recruitment_mcmc_2012}
 \alias{pop_recruitment_mcmc_2012}
-\title{Pacific Ocean Perch age-1 recruitment MCMC estimates from 2012 assessment}
+\title{Pacific Ocean Perch recruitment MCMC estimates (millions of age-1 fish) for
+Queen Charlotte Sounds from the 2012 assessment}
 \format{
 A tibble, also of class \code{recruitea_recruitment} for plotting, with each row representing an MCMC sample, and columns:
 \describe{

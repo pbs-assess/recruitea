@@ -1,4 +1,4 @@
-##' Hake age-0 recruitment MCMC estimates from the 2024 assessment as another example
+##' Hake recruitment MCMC estimates (billions of age-0 fish) from the 2024 assessment
 ##'
 ##' @format A tibble with each row representing an MCMC sample, and columns:
 ##' \describe{
@@ -14,7 +14,8 @@
 ##' @source Generated from running `data-raw/hake.R`
 "hake_recruitment_mcmc"
 
-##' Pacific Ocean Perch age-1 recruitment MCMC estimates from 2012 assessment
+##' Pacific Ocean Perch recruitment MCMC estimates (millions of age-1 fish) for
+##' Queen Charlotte Sounds from the 2012 assessment
 ##'
 ##' As originally used in Haigh et al. (2019) analysis.
 ##'
