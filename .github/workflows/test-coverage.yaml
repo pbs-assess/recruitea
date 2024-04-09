@@ -48,3 +48,9 @@ jobs:
         with:
           name: coverage-test-failures
           path: ${{ runner.temp }}/package
+
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.33563b8f-29b2-49e5-a125-e603a7b85a64 }}
+          slug: pbs-assess/recruitea
