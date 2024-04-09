@@ -35,7 +35,8 @@ plot.recruitea_recruitment <- function(obj,
                                        unfished_years_before = 3,
                                        y_tick_by = 1,
                                        x_tick_extra_years = 20,
-                                       start_decade_ticks = lubridate::ymd("1800-01-01",                                                                        truncated = 2),
+                                       start_decade_ticks = lubridate::ymd("1800-01-01",
+                                                                           truncated = 2),
                                        y_max = NULL,
                                        ...
                                        ){
@@ -46,7 +47,8 @@ plot.recruitea_recruitment <- function(obj,
   ## stopifnot("function currently assumes annual (not monthly) recruitments" =
   ##           !("month" %in% names(obj)))
 
-  # Doesn't really working making the column headings of the obj tibble be Dates
+  # Doesn't really working making the column headings of the obj tibble be
+  #  Dates, so do:
   years_as_dates <- names(obj)
   years_as_dates[1] <- as.character(as.numeric(years_as_dates[2]) - unfished_years_before)
   years_as_dates <- lubridate::ymd(years_as_dates,
@@ -69,50 +71,6 @@ plot.recruitea_recruitment <- function(obj,
                 x_tick_extra_years = x_tick_extra_years,
                 start_decade_ticks = start_decade_ticks)
 
-
-  ## if(grepl("over_2010", deparse(substitute(obj)))){
-  ##   add_line_at_1 = TRUE
-  ##   # Set these defaults if user hasn't changed from default
-  ##   if(uncertainty_bar_col == "blue"){
-  ##     uncertainty_bar_col = "red"
-  ##   }
-  ##   if(is.null(y_max)){
-  ##     y_max = 1.2
-  ##   }
-  ##   if(y_tick_by == 1){
-  ##     y_tick_by = 0.1
-  ##   }
-  ## }
-
-  ## if(grepl("over_R0", deparse(substitute(obj)))){
-  ##   add_line_at_1 = TRUE
-  ##   # Set these defaults if user hasn't changed from default
-  ##   if(uncertainty_bar_col == "blue"){
-  ##     uncertainty_bar_col = "red"
-  ##   }
-  ##   if(is.null(y_max)){
-  ##     y_max = 10
-  ##   }
-  ##   # y_tick_by 1 = default is fine
-  ## }
-
-  ## if(style == "uncertainty"){
-  ##   plot_with_uncertainty_discrete(obj_lub,
-  ##                                  value = value,
-  ##                                  xlab = xlab,
-  ##                                  ylab = ylab,
-  ##                                  uncertainty_bar_col = uncertainty_bar_col,
-  ##                                  y_max = y_max,
-  ##                                  add_line_at_1 = add_line_at_1,
-  ##                                  add_line_at_1_col = add_line_at_1_col,
-  ##                                  add_line_at_1_lty = add_line_at_1_lty,
-  ##                                  ...)
-  ## } else {
-  ##   plot.default(obj_lub$date,
-  ##                obj_lub[[value]], # [[]] returns a vector not a tibble
-  ##                xlab = xlab,
-  ##                ylab = ylab,
-  ##                ...)
-  ## }
+  # Look at plot.pacea_recruitment() if want more options.
  invisible()
 }
