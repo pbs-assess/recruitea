@@ -23,7 +23,7 @@ Hake recruitment MCMC estimates (billions of age-0 fish) from the 2024 assessmen
 \examples{
 \dontrun{
 hake_recruitment_mcmc
-plot(hake_recruitment_mcmc)  # when plot function written
+plot(hake_recruitment_mcmc)
 }
 }
 \author{

@@ -4,20 +4,6 @@
 
 # Want to get in same formate as hake_mcmc.rds
 
-
-
-# hake-2024/hake_mcmc.rds contains a large tibble, with each row being an MCMC
-# sample, and columns representing various things we might want to look
-# at. Extracting some of the useful ones here to save as data objects. Will then
-# come back to this to save more.
-
-# Change assess_yr each year, the rest is automated.
-
-# hake_recruitment will become the latest assessment results, and
-#  hake_recruitment_2023 retains the 2023 assessment results, this is then ongoing for
-#  each year. So hake_recruitment_<assess_yr> = hake_recruitment.
-#  See ?hake for details.
-
 load_all()
 library(dplyr)
 

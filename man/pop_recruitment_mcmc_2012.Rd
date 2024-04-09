@@ -4,7 +4,7 @@
 \name{pop_recruitment_mcmc_2012}
 \alias{pop_recruitment_mcmc_2012}
 \title{Pacific Ocean Perch recruitment MCMC estimates (millions of age-1 fish) for
-Queen Charlotte Sounds from the 2012 assessment}
+Queen Charlotte Sound from the 2012 assessment}
 \format{
 A tibble, also of class \code{recruitea_recruitment} for plotting, with each row representing an MCMC sample, and columns:
 \describe{
@@ -24,7 +24,7 @@ As originally used in Haigh et al. (2019) analysis.
 \examples{
 \dontrun{
 pop_recruitment_mcmc_2012
-plot(recruitment_mcmc_2012)  # when plot function written
+plot(poprecruitment_mcmc_2012)
 }
 }
 \author{
