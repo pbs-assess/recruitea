@@ -47,33 +47,74 @@ each year. Technically, this is done by using all Markov chain Monte Carlo
 The package is currently under construction and not intended to be operational
 yet.
 
-Adapting code from what I have locally in `POP_QCS_ClimateFB`, the non-FB
+Adapting code from what I have locally (from previous laptop) in `POP_QCS_ClimateFB`, the non-FB
 folder is older and has less in it, so just using this one. FB stands for
 Fully Bayesian (iirc).
 
 ## Outline of older code and plan for converting
 
-My POP_QCS_ClimateFB fork is 34 ahead of Jean-Baptiste's; only branch is
+My `POP_QCS_ClimateFB` fork is 34 ahead of Jean-Baptiste's; only branch is
 called Uncertainty. README describes workflow, so need to copy useful files
 over and functionalise them; copying that here to then edit and keep track of
 what we need to move over and rewrite.
 
-Next steps, based on notes below:
-
-- go through **Main_DescriptiveModel.R** first.
-
-Lots of hard-wired names everywhere. Let's just focus on doing the POP values
-with NPGO, as those results looked okay, 'almost significant' (so may possibly change with updated data).
 
 Next steps:
  D save previous POP mcmc values as a data object, so can use to repeat
  - use npgo from pacea
- - work through steps from **Main_Descriptive_Model.R** - a lot is book-keeping
+ D work through steps from **Main_Descriptive_Model.R** - a lot is book-keeping
    and hardwired values. Think don't get too hung up on reusing the old code,
-   maybe simpler to mostly start again.
- - decide on JAGS or Stan. Probably Stan. Or RTMB [no, as want the MCMC, not the
-   approximation]? Or TMBStan?. Catarina and Carrie: go with RTMB and then TMBStan to get
+   maybe simpler to mostly start again. Done below.
+ D decide on JAGS or Stan. Probably Stan. Or RTMB [no, as want the MCMC, not the
+   approximation]? Or TMBStan?.
+   Catarina and Carrie: go with RTMB and then TMBStan to get
    the samples.
+   Catarina: Stan will be hard to include in a package, hence need
+   TMBStan.
+   Philina: could even just use sdmTMB and take out the spatial bit. See
+   start of Sean's talks (Robyn mentioned that wasn't using RTMB, just
+   demonstrating the sparse matrix stuff).
+ - find some template RTMB code and TMBStan, maybe:
+   https://openmse.com/tutorial-rcm/4-case-study-mcmc/
+
+- This looks promising, just rstan:
+   https://agabrioblog.onrender.com/tutorial/multiple-linear-regression-stan/multiple-linear-regression-stan/
+ - Though did we have trouble including tmbstan in the salmon simulation work
+   package with Carrie? I have tmbstan installed okay. In EDMsimulate we used
+   cmdstanr, but it's not used in any of the R functions (it is imported
+   though), or in the report/ folder.
+
+----
+
+'work through steps' from above list:
+
+D go through **Main_DescriptiveModel.R** first, highlighting subfiles here and
+  what might be useful:
+  - `R/Fun/Boot.R`:
+    - `R/Class_Breaks.R` might be useful, for breaking variable up into classes,
+      gives `fun_Class_Breaks()`
+	- `Bayesian/create_model_script.R` complex code for writing model code (not
+      clear which language), using function `create_model_script()`.
+    - `Bayesian/plot_posteriors_HDI.R` and
+      `Bayesian/plot_posteriors_HDI_exports.R` might be useful to adapt for plotting.
+    - `ggs_data_frame` is a properly documented function `ggs()`, but turns out
+      it's taken from the `ggmcmc` package.
+	- `Bayesian/HighDensityIntervals_mcmc.R` makes function `HDIofMCMC()` but
+      code documented clearly (though help info is populated, though
+      incorrectly); can't see how the code calcs the HDI though.
+    - `Fun/Bayesian/Decision/..` I think is for the later work on Decisions;
+      prob not needed.
+ - `R/Load_Data/Load_Data.R` - hardwired coding of data including environmental
+ - `R/DescriptiveModel/Compute_descriptivemodels.R` - code for the linear
+ analysis, but still very cumbersome.
+- conclude from looking through the above that it will be easier to start fresh,
+ using the clear write up in Haigh et al., and do RTMB and TMBStan as mentioned
+ below.
+
+Lots of hard-wired names everywhere. Let's just focus on doing the POP values
+with NPGO, as those results looked okay, 'almost significant' (so may possibly change with updated data).
+
+----
 
 ## Ideas
 
