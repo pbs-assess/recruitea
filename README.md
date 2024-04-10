@@ -55,18 +55,27 @@ Next steps: D save previous POP mcmc values as a data object, so can use
 to repeat - use npgo from pacea D work through steps from
 **Main_Descriptive_Model.R** - a lot is book-keeping and hardwired
 values. Think don’t get too hung up on reusing the old code, maybe
-simpler to mostly start again. Done below. D decide on JAGS or Stan.
-Probably Stan. Or RTMB \[no, as want the MCMC, not the approximation\]?
-Or TMBStan?. Catarina and Carrie: go with RTMB and then TMBStan to get
-the samples. Catarina: Stan will be hard to include in a package, hence
-need TMBStan. Philina: could even just use sdmTMB and take out the
-spatial bit. See start of Sean’s talks (Robyn mentioned that wasn’t
-using RTMB, just demonstrating the sparse matrix stuff). - find some
-template RTMB code and TMBStan, maybe:
-<https://openmse.com/tutorial-rcm/4-case-study-mcmc/>
+simpler to mostly start again. Done below.
+
+D decide on JAGS or Stan. Probably Stan. Or RTMB \[no, as want the MCMC,
+not the approximation\]? Or TMBStan?.
+
+-   Catarina and Carrie: go with RTMB and then TMBStan to get the
+    samples.
+
+-   Catarina: Stan will be hard to include in a package, hence need
+    TMBStan.
+
+-   Philina: could even just use sdmTMB and take out the spatial bit.
+    See start of Sean’s talks (Robyn mentioned that wasn’t using RTMB,
+    just demonstrating the sparse matrix stuff).
+
+-   find some template RTMB code and TMBStan, maybe:
+    <https://openmse.com/tutorial-rcm/4-case-study-mcmc/>
 
 -   This looks promising, just rstan:
     <https://agabrioblog.onrender.com/tutorial/multiple-linear-regression-stan/multiple-linear-regression-stan/>
+
 -   Though did we have trouble including tmbstan in the salmon
     simulation work package with Carrie? I have tmbstan installed okay.
     In EDMsimulate we used cmdstanr, but it’s not used in any of the R
